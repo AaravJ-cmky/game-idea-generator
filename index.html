@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Game Idea Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f1220;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background: #6c63ff;
+      color: white;
+      margin-top: 20px;
+    }
+    .box {
+      background: #1c1f3a;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎮 Game Idea Generator</h1>
+<p>Click once. Get a full game idea.</p>
+
+<button onclick="generate()">Generate Game Idea</button>
+
+<div class="box" id="result" style="display:none;"></div>
+
+<script>
+const genres = ["Action", "Adventure", "Horror", "Puzzle", "RPG", "Simulator"];
+const mechanics = ["time-based scoring", "permadeath", "abilities cooldown", "procedural levels", "stealth", "physics-based movement"];
+const settings = ["space station", "abandoned city", "fantasy world", "underground lab", "floating islands"];
+const characters = ["a lost robot", "a cursed knight", "a hacker kid", "a time traveler", "a creature made of light"];
+
+function generate() {
+  const idea = `
+  <h2>Your Game Idea</h2>
+  <p><b>Genre:</b> ${pick(genres)}</p>
+  <p><b>Main Mechanic:</b> ${pick(mechanics)}</p>
+  <p><b>Setting:</b> ${pick(settings)}</p>
+  <p><b>Main Character:</b> ${pick(characters)}</p>
+  <p><b>Goal:</b> Survive and uncover the truth.</p>
+  `;
+
+  document.getElementById("result").innerHTML = idea;
+  document.getElementById("result").style.display = "block";
+}
+
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+</script>
+
+</body>
+</html>
