@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Random Game Idea Generator</title>
+  <meta charset="UTF-8">
+  <title>Game Idea Generator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -10,8 +11,14 @@
       text-align: center;
       padding: 40px;
     }
+    h1 {
+      margin-bottom: 10px;
+    }
+    p {
+      opacity: 0.9;
+    }
     button {
-      padding: 12px 20px;
+      padding: 12px 22px;
       font-size: 16px;
       cursor: pointer;
       border: none;
@@ -23,8 +30,17 @@
     .box {
       background: #1c1f3a;
       padding: 20px;
-      margin-top: 30px;
-      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 500px;
+      border-radius: 12px;
+      text-align: left;
+    }
+    .center {
+      text-align: center;
+    }
+    a button {
+      background: #ffb703;
+      color: #000;
     }
   </style>
 </head>
@@ -32,34 +48,71 @@
 <body>
 
 <h1>🎮 Game Idea Generator</h1>
-<p>Click once. Get a full game idea.</p>
+<p><b>Stuck on what to build?</b><br>Generate a complete game concept in one click.</p>
 
-<button onclick="generate()">Generate Game Idea</button>
+<button onclick="generate()">🔁 Generate Game Idea</button>
 
 <div class="box" id="result" style="display:none;"></div>
 
+<div class="box center">
+  <h3>❤️ Support This Project</h3>
+  <p>If this generator helped you, consider supporting its development.</p>
+  <a href="https://www.buymeacoffee.com/YOURNAME" target="_blank">
+    <button>Donate</button>
+  </a>
+</div>
+
 <script>
 const genres = ["Action", "Adventure", "Horror", "Puzzle", "RPG", "Simulator"];
-const mechanics = ["time-based scoring", "permadeath", "abilities cooldown", "procedural levels", "stealth", "physics-based movement"];
-const settings = ["space station", "abandoned city", "fantasy world", "underground lab", "floating islands"];
-const characters = ["a lost robot", "a cursed knight", "a hacker kid", "a time traveler", "a creature made of light"];
+const mechanics = [
+  "time-based scoring",
+  "permadeath",
+  "procedural levels",
+  "cooldown-based abilities",
+  "stealth gameplay",
+  "physics-based movement"
+];
+const settings = [
+  "abandoned city",
+  "space station",
+  "fantasy kingdom",
+  "underground laboratory",
+  "floating islands"
+];
+const characters = [
+  "a lost robot",
+  "a cursed knight",
+  "a hacker kid",
+  "a time traveler",
+  "a creature made of light"
+];
+const artStyles = [
+  "pixel art",
+  "low-poly 3D",
+  "hand-drawn",
+  "neon cyberpunk",
+  "minimalist"
+];
+const platforms = ["PC", "Mobile", "Roblox", "Web Browser", "Console"];
+
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 function generate() {
   const idea = `
-  <h2>Your Game Idea</h2>
-  <p><b>Genre:</b> ${pick(genres)}</p>
-  <p><b>Main Mechanic:</b> ${pick(mechanics)}</p>
-  <p><b>Setting:</b> ${pick(settings)}</p>
-  <p><b>Main Character:</b> ${pick(characters)}</p>
-  <p><b>Goal:</b> Survive and uncover the truth.</p>
+    <h2 class="center">Your Game Idea</h2>
+    <p><b>Genre:</b> ${pick(genres)}</p>
+    <p><b>Main Mechanic:</b> ${pick(mechanics)}</p>
+    <p><b>Setting:</b> ${pick(settings)}</p>
+    <p><b>Main Character:</b> ${pick(characters)}</p>
+    <p><b>Art Style:</b> ${pick(artStyles)}</p>
+    <p><b>Platform:</b> ${pick(platforms)}</p>
+    <p><b>Goal:</b> Survive, progress, and uncover the truth.</p>
   `;
 
   document.getElementById("result").innerHTML = idea;
   document.getElementById("result").style.display = "block";
-}
-
-function pick(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
 }
 </script>
 
